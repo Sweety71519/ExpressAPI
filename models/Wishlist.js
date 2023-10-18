@@ -1,28 +1,26 @@
 const mongoose =require("mongoose")
 
-const Wishlistchema =new mongoose.Schema({
+const Wishlistschema =new mongoose.Schema({
     userid:{
         type:String,
-        required:["Cart name must be required."]
+        required:["userid name must be required."]
     },
     productid:{
         type:String,
-        required:["Cart name must be required."]
+        required:["productid name must be required."]
     },
     name:{
         type:String,
         unique:true,
-        required:["Cart name must be required."]
+        required:["Wishlist name must be required."]
     },
     size:{
         type:String,
-        unique:true,
-        required:["Cart name must be required."]
+        required:["Wishlist name must be required."]
     },
     color:{
         type:String,
-        unique:true,
-        required:["Cart name must be required."]
+        required:["Wishlist name must be required."]
     },
     brandname:{
         type:String,
@@ -30,7 +28,7 @@ const Wishlistchema =new mongoose.Schema({
     },
     price:{
         type:Number,
-        required:["Cart name must be required."]
+        required:["Wishlist name must be required."]
     },
     pic:{
         type:String,
@@ -39,6 +37,6 @@ const Wishlistchema =new mongoose.Schema({
     
 })
 
-const Wishlist = new mongoose.model("wishlist",Wishlistchema);
+const Wishlist = new mongoose.model("wishlist",Wishlistschema);
 
 module.exports=Wishlist

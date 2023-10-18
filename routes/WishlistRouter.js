@@ -1,12 +1,12 @@
 const router=require("express").Router()
-const [create,get,update,deletedata,getSingleData] =require("../controllers/BrandsControllers")
+
+const [create,deletedata,get,getSingleData,updatedata] = require("../controllers/WishlistController")
 
 router.post("/",create)
 router.get("/",get)
-router.put("/:_id",update)
 router.get("/:_id",getSingleData)
+router.put("/:_id",updatedata)
 router.delete("/:_id",deletedata)
 
 module.exports=router
-
 

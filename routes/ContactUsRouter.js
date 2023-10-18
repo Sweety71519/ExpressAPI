@@ -1,5 +1,5 @@
 const router=require("express").Router()
-const [create,get,update,deletedata,getSingleData] =require("../controllers/BrandsControllers")
+const [create,get,update,deletedata,getSingleData] =require("../controllers/ContactUsControllers")
 
 router.post("/",create)
 router.get("/",get)
@@ -8,5 +8,3 @@ router.get("/:_id",getSingleData)
 router.delete("/:_id",deletedata)
 
 module.exports=router
-
-

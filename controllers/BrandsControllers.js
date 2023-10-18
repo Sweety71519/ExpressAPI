@@ -14,7 +14,7 @@ async function create(req,res){
       }
     else if(error.errors.name){
       console.log("data--3");
-      res.status(400).send({result:"Fail",message:error.errors.name.value})
+      res.status(400).send({result:"Fail",message:error.errors.name.message})
 
     }
     else

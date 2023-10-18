@@ -1,65 +1,75 @@
-const mongoose =require("mongoose")
+const mongoose = require("mongoose")
 
-const CheckOutchema =new mongoose.Schema({
-    userid:{
-        type:String,
-       
+
+const CheckoutSchema = new mongoose.Schema({
+    userid: {
+        type: String,
+        required: [true, "User Id Must Required"]
     },
-    orderstatus:{
-        type:String,
-        required:["Cart name must be required."]
+    orderstatus: {
+        type: String,
+        default: "Order is Placed"
     },
-    paymentstatus:{
-        type:String,
-        unique:true,
-        required:["Cart name must be required."]
+    paymentmode: {
+        type: String,
+        default: "COD"
     },
-    paymentmode:{
-        type:String,
-        unique:true,
-        required:["Cart name must be required."]
+    paymentstatus: {
+        type: String,
+        default: "Pending"
     },
-    rppid:{
-        type:String,
-        unique:true,
-        required:["Cart name must be required."]
+    rppid: {
+        type: String,
+        default: ""
     },
-    subtotal:{
-        type:String,
-        unique:true,
-        required:["Cart name must be required."]
+    date: {
+        type: String,
+        default: ""
     },
-    shipping:{
-        type:String,
-        unique:true,
-        required:["Cart name must be required."]
+    subtotal: {
+        type: Number,
+        required: [true, "Subtotal Must Required"]
     },
-    total:{
-        type:String,
-        required:["brandname name must be required."]
+    shipping: {
+        type: Number,
+        required: [true, "Shipping Must Required"]
     },
-    products:[{
-        total:{
-            type:String
-        },
-        price:{
-            type:Number
-           
-        },
-        qty:{
-            type:Number
-           
-        },
-        pic:{
-            type:String
+    total: {
+        type: Number,
+        required: [true, "Total Must Required"]
+    },
+    products: [
+        {
+            productid: {
+                type: String
+            },
+            name: {
+                type: String
+            },
+            color: {
+                type: String
+            },
+            brand: {
+                type: String
+            },
+            size: {
+                type: String
+            },
+            price: {
+                type: Number
+            },
+            qty: {
+                type: Number
+            },
+            total: {
+                type: Number
+            },
+            pic: {
+                type: String
+            }
         }
-    }
-
     ]
-    
-    
 })
+const Checkout = new mongoose.model("Checkout", CheckoutSchema)
 
-const CheckOut= new mongoose.model("checkout",CheckOutchema);
-
-module.exports=CheckOut
+module.exports = Checkout
